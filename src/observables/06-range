@@ -1,0 +1,12 @@
+import { range, of, asyncScheduler} from "rxjs";
+import { AsyncScheduler } from "rxjs/internal/scheduler/AsyncScheduler";
+
+const src$ = range(1, 5); // sincrono
+
+const srcAsincrono$ = range(1, 5).pipe(); // sincrono
+
+
+console.log('Inicio');
+srcAsincrono$.subscribe(console.log);
+
+console.log('Final');

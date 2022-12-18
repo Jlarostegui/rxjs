@@ -1,0 +1,37 @@
+import { interval, timer } from "rxjs";
+
+// intervary timer son asincronos;
+
+const observer = {
+  next: valor => console.log('next', valor),
+  complete: () => console.log('complete'),  
+}
+
+const hoy = new Date();
+hoy.setSeconds(hoy.getSeconds() + 5);
+
+const timer$ = timer(2000);
+const timer1$ = timer(2000, 1000);
+const timer2$ = timer(hoy);
+
+
+
+
+const interval$ = interval(1000);
+
+// console.log('inicio ---------- interval');
+// interval$.subscribe(observer);
+// console.log('fin--------interval');
+
+
+
+// console.log('inicio ---------- timer');
+// timer1$.subscribe(observer);
+// console.log('fin--------timer');
+
+
+console.log('inicio ---------- timer');
+timer2$.subscribe(observer);
+console.log('fin--------timer');
+
+
